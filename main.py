@@ -1,10 +1,7 @@
 #!/usr/bin/env pybricks-micropython
 from pybricks.hubs import EV3Brick
-from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor,
-                                 InfraredSensor, UltrasonicSensor, GyroSensor)
 from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
-from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 import os
 import _thread
@@ -41,7 +38,6 @@ def play_badapple(ev3, frames_dir, audio_file, audio_duration_sec=None):
     ev3.screen.clear()
     ev3.screen.draw_text(10, 10, "Sorting...")
     # Sort frames numerically
-    # Improved numeric sort for frame files
     def frame_key(name):
         i = 0
         while i < len(name) and not name[i].isdigit():
@@ -88,4 +84,3 @@ def play_badapple(ev3, frames_dir, audio_file, audio_duration_sec=None):
 # 3m39s = 219 seconds
 audio_duration_sec = 219
 play_badapple(ev3, 'frames', 'BadApple.wav', audio_duration_sec=audio_duration_sec)
-
